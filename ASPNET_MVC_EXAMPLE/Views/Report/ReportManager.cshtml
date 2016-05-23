@@ -5,8 +5,9 @@
     #taskCreate label {
         padding-top: 5px;
     }
-    .modal-content{
-        float:left;
+
+    .modal-content {
+        float: left;
     }
 
     .modal-dialog-height,
@@ -14,9 +15,16 @@
         height: auto;
     }
 
-
     .modal-dialog-width {
         width: 800px !important;
+    }
+
+    .modal-backdrop {
+        z-index: 1000 !important;
+    }
+
+    .modal-body > col-md-12 {
+        margin-bottom: 15px;
     }
 </style>
 
@@ -35,74 +43,75 @@
             </div>
 
             <div class="modal-body">
-                <div class="col-md-12 no-padding float-left">
-                    <div class="col-md-3">
-                        <label class="text-bold">Name :</label>
+                <form action="@Url.Action("Insert","NttEmployee")" method="post" id="new-emp-form">
+                    <div class="col-md-12 no-padding float-left">
+                        <div class="col-md-3">
+                            <label class="text-bold">Name :</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" name="Name" class="form-control" />
+                        </div>
+                        <div class="col-md-4">
+                            <span></span>
+                        </div>
                     </div>
-                    <div class="col-md-5">
-                        <input type="text" placeholder="required" name="TaskName" class="form-control" />
-                    </div>
-                    <div class="col-md-4">
-                        <span></span>
-                    </div>
-                </div>
 
-                <div class="col-md-12 no-padding float-left margin-top-10">
-                    <div class="col-md-3">
-                        <label class="text-bold">Name in Japan :</label>
+                    <div class="col-md-12 no-padding float-left margin-top-10">
+                        <div class="col-md-3">
+                            <label class="text-bold">Name in Japan :</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" name="NameJp" class="form-control" />
+                        </div>
+                        <div class="col-md-4">
+                        </div>
                     </div>
-                    <div class="col-md-5">
-                        <input type="text" placeholder="int please!" class="form-control" />
+                    <div class="col-md-12 no-padding float-left margin-top-10">
+                        <div class="col-md-3">
+                            <label class="text-bold">Day of birth</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="date" name="DayOfBirth" class="form-control" />
+                        </div>
+                        <div class="col-md-4">
+                            <span></span>
+                        </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-12 no-padding float-left margin-top-10">
+                        <div class="col-md-3">
+                            <label class="text-bold">Gender</label>
+                        </div>
+                        <div class="col-md-5">
+                            <label>
+                                <input type="radio" name="Gender" value="1" />
+                                Male
+                            </label>
+                            <label>
+                                <input type="radio" name="Gender" value="0" />
+                                Female
+                            </label>
+                        </div>
+                        <div class="col-md-4">
+                            <span></span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12 no-padding float-left margin-top-10">
-                    <div class="col-md-3">
-                        <label class="text-bold">Day of birth</label>
+                    <div class="col-md-12 no-padding float-left margin-top-10">
+                        <div class="col-md-3">
+                            <label class="text-bold">Note</label>
+                        </div>
+                        <div class="col-md-5">
+                            <textarea class="form-control" name="Note"></textarea>
+                        </div>
+                        <div class="col-md-4">
+                            <span></span>
+                        </div>
                     </div>
-                    <div class="col-md-5">
-                        <input type="date" placeholder="required" class="form-control" />
-                    </div>
-                    <div class="col-md-4">
-                        <span></span>
-                    </div>
-                </div>
-                <div class="col-md-12 no-padding float-left margin-top-10">
-                    <div class="col-md-3">
-                        <label class="text-bold">Gender</label>
-                    </div>
-                    <div class="col-md-5">
-                        <label>
-                            <input type="radio" name="gender" value="1" />
-                            Male
-                        </label>
-                        <label>
-                            <input type="radio" name="gender" value="0" />
-                            Female
-                        </label>
-                    </div>
-                    <div class="col-md-4">
-                        <span></span>
-                    </div>
-                </div>
-                <div class="col-md-12 no-padding float-left margin-top-10">
-                    <div class="col-md-3">
-                        <label class="text-bold">Note</label>
-                    </div>
-                    <div class="col-md-5">
-                        <textarea></textarea>
-                    </div>
-                    <div class="col-md-4">
-                        <span></span>
-                    </div>
-                </div>
-                
+                </form>
             </div>
 
             <div class="modal-footer float-left col-md-12">
                 <button type="button"
-                        class="btn btn-success">
+                        class="btn btn-success btn-submit">
                     Create
                 </button>
                 <button type="button"
@@ -120,6 +129,12 @@
         $('.add-employee').click(function () {
             $('#addUser').modal('show');
         });
-       
+
+
+        $('.btn-submit').click(function () {
+
+            $('#new-emp-form').submit();
+        });
+
     });
 </script>

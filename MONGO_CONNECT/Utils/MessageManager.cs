@@ -9,9 +9,7 @@ namespace MONGO_CONNECT.Utils
 
         public MessageManager()
         {
-            System.Diagnostics.Debug.WriteLine("Init start");
             this.collecion = ConnectDatabase.database.GetCollection<MessageDTO>("system-message");
-            System.Diagnostics.Debug.WriteLine("Init success");
         }
 
         public string GetMessage(string messageName)

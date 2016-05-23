@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Base\ConnectDatabase.cs" />
     <Compile Include="Dto\MessageDTO.cs" />
+    <Compile Include="Dto\NttEmployeeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\MessageManager.cs" />
     <Compile Include="Utils\NttDataEmployeeManager.cs" />
