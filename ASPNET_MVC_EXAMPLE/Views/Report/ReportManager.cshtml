@@ -1,14 +1,32 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
+<style>
+    #taskCreate label {
+        padding-top: 5px;
+    }
+    .modal-content{
+        float:left;
+    }
+
+    .modal-dialog-height,
+    .modal-content-height {
+        height: auto;
+    }
+
+
+    .modal-dialog-width {
+        width: 800px !important;
+    }
+</style>
 
 <div class="container">
     <h2>Report</h2>
-    <button class="btn btn-primary">Add new Employee</button>
+    <button class="btn btn-primary add-employee">Add new Employee</button>
 </div>
 
 <!-- Task Create popup -->
-<div class="modal fade" id="taskCreate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog-height modal-dialog-width">
         <div class="modal-content modal-content-height">
             <div class="modal-header">
@@ -19,32 +37,32 @@
             <div class="modal-body">
                 <div class="col-md-12 no-padding float-left">
                     <div class="col-md-3">
-                        <label class="text-bold">Task name :</label>
+                        <label class="text-bold">Name :</label>
                     </div>
                     <div class="col-md-5">
-                        <input type="text" placeholder="required" name="TaskName" class="form-control" ng-model="item.TaskName" />
+                        <input type="text" placeholder="required" name="TaskName" class="form-control" />
                     </div>
                     <div class="col-md-4">
-                        <span>{{taskNameMessage}}</span>
+                        <span></span>
                     </div>
                 </div>
 
                 <div class="col-md-12 no-padding float-left margin-top-10">
                     <div class="col-md-3">
-                        <label class="text-bold">Task level :</label>
+                        <label class="text-bold">Name in Japan :</label>
                     </div>
                     <div class="col-md-5">
-                        <input type="text" placeholder="int please!" class="form-control" ng-model="item.TaskLevel" />
+                        <input type="text" placeholder="int please!" class="form-control" />
                     </div>
                     <div class="col-md-4">
                     </div>
                 </div>
                 <div class="col-md-12 no-padding float-left margin-top-10">
                     <div class="col-md-3">
-                        <label class="text-bold">Task content :</label>
+                        <label class="text-bold">Day of birth</label>
                     </div>
                     <div class="col-md-5">
-                        <input type="text" placeholder="required" class="form-control" ng-model="item.TaskContent" />
+                        <input type="date" placeholder="required" class="form-control" />
                     </div>
                     <div class="col-md-4">
                         <span></span>
@@ -52,10 +70,17 @@
                 </div>
                 <div class="col-md-12 no-padding float-left margin-top-10">
                     <div class="col-md-3">
-                        <label class="text-bold">Task reward :</label>
+                        <label class="text-bold">Gender</label>
                     </div>
                     <div class="col-md-5">
-                        <input type="text" placeholder="int please!" class="form-control" ng-model="item.TaskReworkMoney" />
+                        <label>
+                            <input type="radio" name="gender" value="1" />
+                            Male
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="0" />
+                            Female
+                        </label>
                     </div>
                     <div class="col-md-4">
                         <span></span>
@@ -63,32 +88,21 @@
                 </div>
                 <div class="col-md-12 no-padding float-left margin-top-10">
                     <div class="col-md-3">
-                        <label class="text-bold">Task reward other :</label>
+                        <label class="text-bold">Note</label>
                     </div>
                     <div class="col-md-5">
-                        <input type="text" placeholder="required" class="form-control" ng-model="item.TaskRewordOther" />
+                        <textarea></textarea>
                     </div>
                     <div class="col-md-4">
                         <span></span>
                     </div>
                 </div>
-                <div class="col-md-12 no-padding float-left margin-top-10">
-                    <div class="col-md-3">
-                        <label class="text-bold">Time :</label>
-                    </div>
-                    <div class="col-md-5">
-                        <input type="text" placeholder="int or float please !" class="form-control" ng-model="item.TimeToFinish" />
-                    </div>
-                    <div class="col-md-4">
-                        <span></span>
-                    </div>
-                </div>
+                
             </div>
 
             <div class="modal-footer float-left col-md-12">
                 <button type="button"
-                        class="btn btn-success"
-                        ng-click="createNewTask(item)">
+                        class="btn btn-success">
                     Create
                 </button>
                 <button type="button"
@@ -100,3 +114,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $('.add-employee').click(function () {
+            $('#addUser').modal('show');
+        });
+       
+    });
+</script>

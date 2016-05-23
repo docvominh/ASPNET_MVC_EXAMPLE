@@ -9,7 +9,7 @@ namespace ASPNET_MVC_EXAMPLE.Controllers
     public class ReportController : Controller
     {
         // GET: Report
-        public ActionResult Index()
+        public ActionResult ReportManager()
         {
             return View();
         }
