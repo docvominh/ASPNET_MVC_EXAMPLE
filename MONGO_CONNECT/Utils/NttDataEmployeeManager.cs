@@ -1,6 +1,7 @@
 ﻿using MONGO_CONNECT.Dto;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Collections.Generic;
 
 namespace MONGO_CONNECT.Utils
 {
@@ -11,6 +12,14 @@ namespace MONGO_CONNECT.Utils
         public NttDataEmployeeManager()
         {
             this.collecion = ConnectDatabase.database.GetCollection<NttEmployeeDTO>("ntt-employee");
+        }
+
+        public ICollection<NttEmployeeDTO> GetNTTEmployeeList()
+        {
+            ICollection<NttEmployeeDTO> list = new List<NttEmployeeDTO>();
+            list = this.collecion.Find(x => x.DeleteFlag == false).ToList();
+
+            return list;
         }
 
         public bool InsertNTTEmployee(NttEmployeeDTO emp)
