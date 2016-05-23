@@ -1,5 +1,9 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@using MONGO_CONNECT.Dto
+@model ICollection<MONGO_CONNECT.Dto.NttEmployeeDTO>
+
+@{
+    ViewBag.Title = "Report";
+    int count = 0;
 }
 <style>
     #taskCreate label {
@@ -23,14 +27,53 @@
         z-index: 1000 !important;
     }
 
-    .modal-body > col-md-12 {
+    .modal-body .col-md-12 {
         margin-bottom: 15px;
     }
+
+        .modal-body .col-md-12 label {
+            margin: 0;
+            line-height: 34px;
+        }
 </style>
 
 <div class="container">
     <h2>Report</h2>
+    <br />
     <button class="btn btn-primary add-employee">Add new Employee</button>
+    
+    <button class="btn btn-danger get-report">Get Report</button>
+    <br /><br />
+    <table class="table">
+        <colgroup></colgroup>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Day Of Birth</th>
+                <th>Age</th>
+                <th>Join Date</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (NttEmployeeDTO obj in Model)
+            {
+                count++;
+                int age = (DateTime.Now.Year - obj.DayOfBirth.Year);
+                string gender = (@obj.Gender ? "Male" : "Female");
+                <tr>
+                    <td>@count</td>
+                    <td>@obj.Name</td>
+                    <td>@obj.DayOfBirth.ToShortDateString()</td>
+                    <td>@age</td>
+                    <td>@obj.JoinDate.ToShortDateString()</td>
+                    <td>@gender</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
 <!-- Task Create popup -->
@@ -44,67 +87,68 @@
 
             <div class="modal-body">
                 <form action="@Url.Action("Insert","NttEmployee")" method="post" id="new-emp-form">
-                    <div class="col-md-12 no-padding float-left">
-                        <div class="col-md-3">
-                            <label class="text-bold">Name :</label>
-                        </div>
-                        <div class="col-md-5">
-                            <input type="text" name="Name" class="form-control" />
-                        </div>
-                        <div class="col-md-4">
-                            <span></span>
-                        </div>
-                    </div>
+                    <div class="col-md-8 float-left">
 
-                    <div class="col-md-12 no-padding float-left margin-top-10">
-                        <div class="col-md-3">
-                            <label class="text-bold">Name in Japan :</label>
+                        <div class="col-md-12 no-padding float-left">
+                            <div class="col-md-5">
+                                <label class="text-bold">Name :</label>
+                            </div>
+                            <div class="col-md-7">
+                                <input type="text" name="Name" class="form-control" />
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                            <input type="text" name="NameJp" class="form-control" />
+
+                        <div class="col-md-12 no-padding float-left margin-top-10">
+                            <div class="col-md-5">
+                                <label class="text-bold">Name in Japan :</label>
+                            </div>
+                            <div class="col-md-7">
+                                <input type="text" name="NameJp" class="form-control" />
+                            </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-12 no-padding float-left margin-top-10">
+                            <div class="col-md-5">
+                                <label class="text-bold">Day of birth</label>
+                            </div>
+                            <div class="col-md-7">
+                                <input type="date" name="DayOfBirth" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 no-padding float-left margin-top-10">
+                            <div class="col-md-5">
+                                <label class="text-bold">Join Date</label>
+                            </div>
+                            <div class="col-md-7">
+                                <input type="date" name="JoinDate" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12 no-padding float-left margin-top-10">
+                            <div class="col-md-5">
+                                <label class="text-bold">Gender</label>
+                            </div>
+                            <div class="col-md-7">
+                                <label>
+                                    <input type="radio" name="Gender" value="true" />
+                                    Male
+                                </label>
+                                <label>
+                                    <input type="radio" name="Gender" value="false" />
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 no-padding float-left margin-top-10">
+                            <div class="col-md-5">
+                                <label class="text-bold">Note</label>
+                            </div>
+                            <div class="col-md-7">
+                                <textarea class="form-control" name="Note"></textarea>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-12 no-padding float-left margin-top-10">
-                        <div class="col-md-3">
-                            <label class="text-bold">Day of birth</label>
-                        </div>
-                        <div class="col-md-5">
-                            <input type="date" name="DayOfBirth" class="form-control" />
-                        </div>
-                        <div class="col-md-4">
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 no-padding float-left margin-top-10">
-                        <div class="col-md-3">
-                            <label class="text-bold">Gender</label>
-                        </div>
-                        <div class="col-md-5">
-                            <label>
-                                <input type="radio" name="Gender" value="1" />
-                                Male
-                            </label>
-                            <label>
-                                <input type="radio" name="Gender" value="0" />
-                                Female
-                            </label>
-                        </div>
-                        <div class="col-md-4">
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 no-padding float-left margin-top-10">
-                        <div class="col-md-3">
-                            <label class="text-bold">Note</label>
-                        </div>
-                        <div class="col-md-5">
-                            <textarea class="form-control" name="Note"></textarea>
-                        </div>
-                        <div class="col-md-4">
-                            <span></span>
-                        </div>
+                    <div class="col-md-4 float-left">
+                        <h1>IMAGE HERE</h1>
                     </div>
                 </form>
             </div>
@@ -112,7 +156,7 @@
             <div class="modal-footer float-left col-md-12">
                 <button type="button"
                         class="btn btn-success btn-submit">
-                    Create
+                    Submit
                 </button>
                 <button type="button"
                         class="btn btn-default"
@@ -125,15 +169,25 @@
 </div>
 
 <script>
+
+    var reportURL = "@Url.Action("GetListReport", "Report")";
+
     $(function () {
         $('.add-employee').click(function () {
             $('#addUser').modal('show');
         });
 
-
         $('.btn-submit').click(function () {
 
             $('#new-emp-form').submit();
+        });
+
+        $('.get-report').click(function () {
+            window.location = reportURL;
+            //$.ajax({
+            //    url: reportURL,
+            //    type: "POST",
+            //});
         });
 
     });

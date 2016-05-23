@@ -16,14 +16,14 @@ namespace ASPNET_MVC_EXAMPLE.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class EmployeReport : ReportClass {
+    public class EmployeeReport : ReportClass {
         
-        public EmployeReport() {
+        public EmployeeReport() {
         }
         
         public override string ResourceName {
             get {
-                return "EmployeReport.rpt";
+                return "EmployeeReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ASPNET_MVC_EXAMPLE.Report {
         
         public override string FullResourceName {
             get {
-                return "ASPNET_MVC_EXAMPLE.Report.EmployeReport.rpt";
+                return "ASPNET_MVC_EXAMPLE.Report.EmployeeReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace ASPNET_MVC_EXAMPLE.Report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedEmployeReport : Component, ICachedReport {
+    public class CachedEmployeeReport : Component, ICachedReport {
         
-        public CachedEmployeReport() {
+        public CachedEmployeeReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace ASPNET_MVC_EXAMPLE.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            EmployeReport rpt = new EmployeReport();
+            EmployeeReport rpt = new EmployeeReport();
             rpt.Site = this.Site;
             return rpt;
         }
