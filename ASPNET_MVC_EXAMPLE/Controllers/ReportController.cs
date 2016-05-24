@@ -1,6 +1,7 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using MONGO_CONNECT.Dto;
 using MONGO_CONNECT.Utils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Web.Mvc;
@@ -23,6 +24,11 @@ namespace ASPNET_MVC_EXAMPLE.Controllers
         {
             NttDataEmployeeManager ndem = new NttDataEmployeeManager();
             ICollection<NttEmployeeDTO> list = ndem.GetNTTEmployeeList();
+
+            foreach (NttEmployeeDTO obj in list)
+            {
+                obj.Age = (byte)(DateTime.Now.Year - obj.DayOfBirth.Year);
+            }
 
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Report/EmployeeReport.rpt")));

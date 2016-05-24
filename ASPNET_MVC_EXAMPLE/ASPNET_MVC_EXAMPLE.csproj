@@ -221,6 +221,7 @@
     <Content Include="Report\Employee.xsc">
       <DependentUpon>Employee.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\MyIIS.pubxml" />
     <None Include="Report\Employee.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
