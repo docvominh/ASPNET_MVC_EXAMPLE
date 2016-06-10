@@ -1,16 +1,33 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #ecf0f5;
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: inherit;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: #fff;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
 */
 .dl-horizontal dt {
     white-space: normal;
@@ -21,4 +38,64 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#footer {
+    background: #242729;
+    clear: both;
+    color: #fff;
+}
+
+.simple-box, .simple-box * {
+    /*float:left;*/
+}
+.simple-box {
+    border-radius: 2px;
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+    .simple-box > .box-content {
+        padding: 10px;
+         color: #fff;
+    }
+
+        .simple-box > .box-content > .box-text {
+            font-size: 25px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            white-space: nowrap;
+            padding: 0;
+            width:68%;
+            display:inline-block;
+            vertical-align:top;
+        }
+
+        .simple-box > .box-content > .box-image {
+             font-size: 65px;
+             width:30%;
+             display:inline-block;
+             text-align:center;
+             vertical-align:top;
+        }
+
+    .simple-box > .box-link {
+        position: relative;
+        text-align: center;
+        padding: 3px 0;
+       
+        color: rgba(255,255,255,0.8);
+        display: block;
+        z-index: 10;
+        background: rgba(0,0,0,0.1);
+        text-decoration: none;
+    }
+
+.box-light-brown {
+}
+
+.box-green {
+    background-color: #00a65a !important;
 }

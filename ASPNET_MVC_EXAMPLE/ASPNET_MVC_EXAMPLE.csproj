@@ -181,6 +181,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NttEmployeeController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -206,9 +207,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\index_slider2016.jpg" />
     <Content Include="Content\Images\ntt.jpg" />
+    <Content Include="Content\swiper.css" />
+    <Content Include="Content\swiper.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -221,6 +227,11 @@
     <Content Include="Report\Employee.xsc">
       <DependentUpon>Employee.xsd</DependentUpon>
     </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\MyIIS.pubxml" />
     <None Include="Report\Employee.xsd">
       <SubType>Designer</SubType>
@@ -282,9 +293,15 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Report\ReportManager.cshtml" />
+    <Content Include="Views\Shared\_ShopClothingTechLayout.cshtml" />
+    <Content Include="Views\Shared\_ShopCosmeticsLayout.cshtml" />
+    <Content Include="Views\Shared\_ShopHighTechLayout.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shop\HighTech.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Template\" />
     <Folder Include="Views\NttEmployee\" />
   </ItemGroup>
   <ItemGroup>

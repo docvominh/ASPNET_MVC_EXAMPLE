@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace ASPNET_MVC_EXAMPLE
 {
@@ -27,6 +26,7 @@ namespace ASPNET_MVC_EXAMPLE
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/font-awesome.min.css",
                       "~/Content/site.css"));
         }
     }
