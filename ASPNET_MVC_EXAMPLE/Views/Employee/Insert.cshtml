@@ -1,0 +1,123 @@
+﻿@model MONGO_CONNECT.Dto.NttEmployeeDTO
+
+<style>
+    #taskCreate label {
+        padding-top: 5px;
+    }
+
+    .modal-content {
+        float: left;
+    }
+
+    .modal-dialog-height,
+    .modal-content-height {
+        height: auto;
+    }
+
+    .modal-dialog-width {
+        width: 800px !important;
+    }
+
+    .modal-backdrop {
+        z-index: 1000 !important;
+    }
+
+    .modal-body .col-md-12 {
+        margin-bottom: 15px;
+    }
+
+        .modal-body .col-md-12 label {
+            margin: 0;
+            line-height: 34px;
+        }
+</style>
+
+<!-- Task Create popup -->
+<div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-height modal-dialog-width">
+        <div class="modal-content modal-content-height">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Create new task (No validate)</h4>
+            </div>
+            @using (Html.BeginForm("Insert", "NttEmployee", FormMethod.Post, new { id = "new-emp-form", @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="modal-body">
+
+                    <div class="col-md-8 float-left">
+                        <div class="col-md-12 no-padding float-left">
+                            <div class="col-md-5">
+                                @Html.LabelFor(m => m.Name, new { @class = "text-bold" })
+                            </div>
+                            <div class="col-md-7">
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 no-padding float-left margin-top-10">
+                            <div class="col-md-5">
+                                @Html.LabelFor(m => m.NameJp, new { @class = "text-bold" })
+                            </div>
+                            <div class="col-md-7">
+                                @Html.TextBoxFor(m => m.NameJp, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-12 no-padding float-left margin-top-10">
+                            <div class="col-md-5">
+                                @Html.LabelFor(m => m.DayOfBirth, new { @class = "text-bold" })
+                            </div>
+                            <div class="col-md-7">
+                                @Html.EditorFor(m => m.DayOfBirth, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 no-padding float-left margin-top-10">
+                            <div class="col-md-5">
+                                @Html.LabelFor(m => m.JoinDate, new { @class = "text-bold" })
+                            </div>
+                            <div class="col-md-7">
+                                @Html.EditorFor(m => m.JoinDate, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-12 no-padding float-left margin-top-10">
+                            <div class="col-md-5">
+                                @Html.LabelFor(m => m.Gender, new { @class = "text-bold" })
+                            </div>
+                            <div class="col-md-7">
+                                <label>
+                                    @Html.RadioButtonFor(m => m.Gender, "true")
+                                </label>
+                                <label>
+                                    @Html.RadioButtonFor(m => m.Gender, "false")
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 no-padding float-left margin-top-10">
+                            <div class="col-md-5">
+                                @Html.LabelFor(m => m.Note, new { @class = "text-bold" })
+                            </div>
+                            <div class="col-md-7">
+                                @Html.TextAreaFor(m => m.Note)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 float-left">
+                        <h1>IMAGE HERE</h1>
+                    </div>
+                </div>
+
+                <div class="modal-footer float-left col-md-12">
+                    <input type="submit" value="Submit" class="btn btn-success btn-submit"/>
+                    
+                    <button type="button"
+                            class="btn btn-default"
+                            data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

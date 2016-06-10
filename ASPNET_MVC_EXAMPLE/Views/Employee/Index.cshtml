@@ -1,0 +1,88 @@
+﻿@using ASPNET_MVC_EXAMPLE.Models;
+@using MONGO_CONNECT.Dto;
+@model EmployeeModels
+
+@{
+            ViewBag.Title = "Report";
+            int count = 0;
+}
+
+<div class="container">
+    <h2>Report</h2>
+    <br />
+    <button class="btn btn-primary add-employee">Add new Employee</button>
+
+    <button class="btn btn-danger get-report">Get Report</button>
+    <br /><br />
+    <table class="table">
+        <colgroup></colgroup>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Day Of Birth</th>
+                <th>Age</th>
+                <th>Join Date</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (NttEmployeeDTO obj in Model.listModel)
+            {
+                count++;
+                int age = (DateTime.Now.Year - obj.DayOfBirth.Year);
+                string gender = (@obj.Gender ? "Male" : "Female");
+                <tr>
+                    <td>@count</td>
+                    <td>@obj.Name</td>
+                    <td>@obj.DayOfBirth.ToShortDateString()</td>
+                    <td>@age</td>
+                    <td>@obj.JoinDate.ToShortDateString()</td>
+                    <td>@gender</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@{ Html.RenderPartial("Insert", Model.insertModel);  }
+@*@Html.Partial("Insert")*@
+
+<script>
+
+    var reportURL = "@Url.Action("GetListReport", "Report")";
+    var insertScreenURL = "@Url.Action("Insert", "Employee")";
+    $(function () {
+
+        var insertPopup = '';
+
+        $('.add-employee').click(function () {
+            //$(document).on('click', '.add-employee', function () {
+
+            //if (insertPopup == '') {
+            //    $.get(insertScreenURL, function (data) {
+            //        insertPopup = data;
+            //    });
+            //}
+
+            //$('body').append(insertPopup);
+
+            $('#addUser').modal('show');
+        });
+
+        $('.btn-submit').click(function () {
+
+            $('#new-emp-form').submit();
+        });
+
+        $('.get-report').click(function () {
+            window.location = reportURL;
+            //$.ajax({
+            //    url: reportURL,
+            //    type: "POST",
+            //});
+        });
+
+    });
+</script>
