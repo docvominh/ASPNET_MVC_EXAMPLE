@@ -1,5 +1,13 @@
-﻿@model MONGO_CONNECT.Dto.NttEmployeeDTO
+﻿@model MONGO_CONNECT.Dto.EmployeeDTO
 
+@{
+    bool isPopup = (bool)(ViewData["isPopup"] != null ? ViewData["isPopup"] : false);
+
+    if (isPopup)
+    {
+        Layout = null;
+    }
+}
 <style>
     #taskCreate label {
         padding-top: 5px;
@@ -40,7 +48,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Create new task (No validate)</h4>
             </div>
-            @using (Html.BeginForm("Insert", "NttEmployee", FormMethod.Post, new { id = "new-emp-form", @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm("Insert", "Employee", FormMethod.Post, new { id = "new-emp-form", @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
 
@@ -53,6 +61,7 @@
                             </div>
                             <div class="col-md-7">
                                 @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Name)
                             </div>
                         </div>
 
@@ -62,6 +71,7 @@
                             </div>
                             <div class="col-md-7">
                                 @Html.TextBoxFor(m => m.NameJp, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.NameJp)
                             </div>
                         </div>
                         <div class="col-md-12 no-padding float-left margin-top-10">
@@ -70,6 +80,7 @@
                             </div>
                             <div class="col-md-7">
                                 @Html.EditorFor(m => m.DayOfBirth, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.DayOfBirth)
                             </div>
                         </div>
 
@@ -79,6 +90,7 @@
                             </div>
                             <div class="col-md-7">
                                 @Html.EditorFor(m => m.JoinDate, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.JoinDate)
                             </div>
                         </div>
                         <div class="col-md-12 no-padding float-left margin-top-10">
@@ -109,8 +121,8 @@
                 </div>
 
                 <div class="modal-footer float-left col-md-12">
-                    <input type="submit" value="Submit" class="btn btn-success btn-submit"/>
-                    
+                    <input type="submit" value="Submit" class="btn btn-success btn-submit" />
+
                     <button type="button"
                             class="btn btn-default"
                             data-dismiss="modal">

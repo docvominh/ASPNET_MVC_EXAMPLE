@@ -12,9 +12,9 @@ namespace ASPNET_MVC_EXAMPLE.Controllers
     {
         public ActionResult ReportManager()
         {
-            NttDataEmployeeManager ndem = new NttDataEmployeeManager();
+            EmployeeManager ndem = new EmployeeManager();
 
-            ICollection<NttEmployeeDTO> list = ndem.GetNTTEmployeeList();
+            ICollection<EmployeeDTO> list = ndem.GetEmployeeList();
 
             return View(list);
         }
@@ -22,10 +22,10 @@ namespace ASPNET_MVC_EXAMPLE.Controllers
         // GET: Report
         public ActionResult GetListReport()
         {
-            NttDataEmployeeManager ndem = new NttDataEmployeeManager();
-            ICollection<NttEmployeeDTO> list = ndem.GetNTTEmployeeList();
+            EmployeeManager ndem = new EmployeeManager();
+            ICollection<EmployeeDTO> list = ndem.GetEmployeeList();
 
-            foreach (NttEmployeeDTO obj in list)
+            foreach (EmployeeDTO obj in list)
             {
                 obj.Age = (byte)(DateTime.Now.Year - obj.DayOfBirth.Year);
             }

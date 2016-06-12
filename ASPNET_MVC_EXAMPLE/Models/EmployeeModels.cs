@@ -8,7 +8,7 @@ namespace ASPNET_MVC_EXAMPLE.Models
 {
     public class EmployeeModels
     {
-        public ICollection<NttEmployeeDTO> listModel { get; set; }
-        public NttEmployeeDTO insertModel { get; set; }
+        public ICollection<EmployeeDTO> listModel { get; set; }
+        public EmployeeDTO insertModel { get; set; }
     }
 }

@@ -28,7 +28,7 @@
         </thead>
         <tbody>
 
-            @foreach (NttEmployeeDTO obj in Model.listModel)
+            @foreach (EmployeeDTO obj in Model.listModel)
             {
                 count++;
                 int age = (DateTime.Now.Year - obj.DayOfBirth.Year);
@@ -46,7 +46,7 @@
     </table>
 </div>
 
-@{ Html.RenderPartial("Insert", Model.insertModel);  }
+@{ Html.RenderPartial("Insert", Model.insertModel, new ViewDataDictionary(ViewData) { { "isPopup", true } });  }
 @*@Html.Partial("Insert")*@
 
 <script>

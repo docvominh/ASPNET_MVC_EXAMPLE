@@ -180,7 +180,6 @@
     <Compile Include="Controllers\CRUD\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\NttEmployeeController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
@@ -306,7 +305,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Template\" />
-    <Folder Include="Views\NttEmployee\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -12,12 +12,12 @@ namespace ASPNET_MVC_EXAMPLE.Controllers.CRUD
         public ActionResult Index()
         {
             EmployeeModels model = new EmployeeModels();
-            NttDataEmployeeManager ndem = new NttDataEmployeeManager();
+            EmployeeManager ndem = new EmployeeManager();
 
-            ICollection<NttEmployeeDTO> list = ndem.GetNTTEmployeeList();
+            ICollection<EmployeeDTO> list = ndem.GetEmployeeList();
 
             model.listModel = list;
-            model.insertModel = new NttEmployeeDTO();
+            model.insertModel = new EmployeeDTO();
 
             return View(model);
         }
@@ -29,14 +29,14 @@ namespace ASPNET_MVC_EXAMPLE.Controllers.CRUD
         }
 
         [HttpPost]
-        public ActionResult Insert(NttEmployeeDTO emp)
+        public ActionResult Insert(EmployeeDTO emp)
         {
             if (!ModelState.IsValid)
             {
                 return Json("Validate fail !", JsonRequestBehavior.AllowGet);
             }
-            NttDataEmployeeManager ndem = new NttDataEmployeeManager();
-            bool result = ndem.InsertNTTEmployee(emp);
+            EmployeeManager ndem = new EmployeeManager();
+            bool result = ndem.InsertEmployee(emp);
 
             if (result)
             {

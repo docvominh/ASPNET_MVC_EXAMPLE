@@ -5,24 +5,24 @@ using System.Collections.Generic;
 
 namespace MONGO_CONNECT.Utils
 {
-    public class NttDataEmployeeManager
+    public class EmployeeManager
     {
-        private IMongoCollection<NttEmployeeDTO> collecion { get; set; }
+        private IMongoCollection<EmployeeDTO> collecion { get; set; }
 
-        public NttDataEmployeeManager()
+        public EmployeeManager()
         {
-            this.collecion = ConnectDatabase.database.GetCollection<NttEmployeeDTO>("ntt-employee");
+            this.collecion = ConnectDatabase.database.GetCollection<EmployeeDTO>("employee");
         }
 
-        public ICollection<NttEmployeeDTO> GetNTTEmployeeList()
+        public ICollection<EmployeeDTO> GetEmployeeList()
         {
-            ICollection<NttEmployeeDTO> list = new List<NttEmployeeDTO>();
+            ICollection<EmployeeDTO> list = new List<EmployeeDTO>();
             list = this.collecion.Find(x => x.DeleteFlag == false).ToList();
 
             return list;
         }
 
-        public bool InsertNTTEmployee(NttEmployeeDTO emp)
+        public bool InsertEmployee(EmployeeDTO emp)
         {
             long beforeCount = CountActive();
             Insert(emp);
@@ -36,7 +36,7 @@ namespace MONGO_CONNECT.Utils
             return false;
         }
 
-        private void Insert(NttEmployeeDTO emp)
+        private void Insert(EmployeeDTO emp)
         {
             emp.DeleteFlag = false;
             this.collecion.InsertOneAsync(emp);

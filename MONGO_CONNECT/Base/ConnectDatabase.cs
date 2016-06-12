@@ -12,7 +12,7 @@ namespace MONGO_CONNECT
             string mongoUri = ConfigurationManager.AppSettings["mongo-uri"];
             string mongoDatabase = ConfigurationManager.AppSettings["mongo-database"];
 
-            System.Diagnostics.Debug.WriteLine(mongoUri + " | " + mongoDatabase);
+            //System.Diagnostics.Debug.WriteLine(mongoUri + " | " + mongoDatabase);
 
             var client = new MongoClient(mongoUri);
             database = client.GetDatabase(mongoDatabase);

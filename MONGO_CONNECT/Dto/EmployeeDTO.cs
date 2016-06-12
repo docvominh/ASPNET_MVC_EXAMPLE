@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MONGO_CONNECT.Dto
 {
-    public class NttEmployeeDTO
+    public class EmployeeDTO
     {
         [BsonRepresentation(BsonType.ObjectId)]
         public string _id { get; set; }
