@@ -182,6 +182,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Custom\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Custom\CustomPrincipal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -189,6 +191,8 @@
     <Compile Include="Models\EmployeeModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\Employee.Designer.cs">
       <AutoGen>True</AutoGen>

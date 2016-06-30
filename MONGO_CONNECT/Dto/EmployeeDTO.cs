@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using MONGO_CONNECT.CustomValidation;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -14,16 +15,17 @@ namespace MONGO_CONNECT.Dto
         [Display(Name = "Name")]
         public string Name { get; set; }
 
+        [CustomRequired]
         [Display(Name = "Name in Japan")]
         public string NameJp { get; set; }
 
+        [DateCompareValidation]
         [Display(Name = "Day Of Birth")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DayOfBirth { get; set; }
 
         [Display(Name = "Join Date")]
-
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime JoinDate { get; set; }

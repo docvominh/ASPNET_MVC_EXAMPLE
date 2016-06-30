@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\ConnectDatabase.cs" />
+    <Compile Include="CustomValidation\CustomRequired.cs" />
+    <Compile Include="CustomValidation\DateCompareValidation.cs" />
     <Compile Include="Dto\MessageDTO.cs" />
     <Compile Include="Dto\EmployeeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
