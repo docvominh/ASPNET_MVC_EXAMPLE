@@ -17,5 +17,7 @@ namespace ASPNET_MVC_EXAMPLE
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        
     }
 }
