@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace MONGO_CONNECT.CustomValidation
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
-    public class CustomRequiredAttribute : ValidationAttribute, IClientValidatable
+    public class CustomRequiredAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {

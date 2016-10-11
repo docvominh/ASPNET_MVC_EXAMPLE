@@ -184,6 +184,7 @@
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Custom\CustomAuthorizeAttribute.cs" />
     <Compile Include="Custom\CustomPrincipal.cs" />
+    <Compile Include="Custom\Test.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
